@@ -1,5 +1,7 @@
+require_relative './module'
 class Magazine
   attr_accessor :name, :category
+  extend Finder
 
   @@all = []
 
@@ -38,7 +40,8 @@ class Magazine
   end
 
   def contributors
-    Authors.all.find { |author| author == @uthor}
+    # Authors.all.find { |author| author == @uthor}
+    all_authors.uniq
   end
 
 
