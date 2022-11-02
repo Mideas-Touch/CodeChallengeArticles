@@ -44,6 +44,11 @@ class Magazine
     all_authors.uniq
   end
 
+  def article_titles
+    all_articles.tally.each { |key, value| value > 2 && (main_authors << key)}
+    main_authors
+  end
+
 
 end
 
